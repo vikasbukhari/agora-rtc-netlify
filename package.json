@@ -1,0 +1,20 @@
+{
+  "name": "agora-rtc-netlify-token-generator",
+  "version": "1.0.0",
+  "description": "agora-rtc-netlify",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/netlify-lambda serve src",
+    "build": "./node_modules/.bin/netlify-lambda build src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vikasbukhari/agora-rtc-netlify.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vikasbukhari/agora-rtc-netlify/issues"
+  },
+  "homepage": "https://github.com/vikasbukhari/agora-rtc-netlify#readme"
+}
