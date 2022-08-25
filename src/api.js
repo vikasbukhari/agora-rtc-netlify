@@ -5,6 +5,7 @@ const { RtcTokenBuilder, RtcRole } = require('agora-access-token');
 
 dotenv.config();
 const app = express();
+const router = express.Router();
 
 const APP_ID = process.env.APP_ID;
 const APP_CERTIFICATE = process.env.APP_CERTIFICATE;
@@ -16,14 +17,13 @@ const nocache = (_, resp, next) => {
     next();
 }
 
-const router = express.Router();
-
 router.get("/", (req, res) => {
   res.json({
-    hello: "hi!"
+    hello: "Hello! Welcome to my RTC Server"
   });
 });
 
+// RTC FUNCTION
 const generateRTCToken = (req, resp) => {
     // set response header
     resp.header('Access-Control-Allow-Origin', '*');
@@ -70,15 +70,11 @@ const generateRTCToken = (req, resp) => {
 }
 
 
+// RTC URL To Generate Token
 router.get('/rtc/:channel/:role/:tokentype/:uid', nocache , generateRTCToken);
-
-router.post('/testpost',(req,res) => {
-    res.json({
-        hello: "hit the POST!"
-      });
-})
 
 app.use(`/.netlify/functions/api`, router);
 
+// exports
 module.exports = app;
 module.exports.handler = serverless(app);
