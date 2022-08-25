@@ -20,6 +20,9 @@
   "dependencies": {
     "express": "^4.18.1",
     "netlify-lambda": "^2.0.15",
-    "serverless-http": "^3.0.2"
+    "serverless-http": "^3.0.2",
+    "agora-access-token": "^2.0.4",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0"
   }
 }
