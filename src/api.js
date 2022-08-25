@@ -17,11 +17,7 @@ const nocache = (_, resp, next) => {
     next();
 }
 
-router.get("/", (req, res) => {
-  res.json({
-    hello: "Hello! Welcome to my RTC Server"
-  });
-});
+
 
 // RTC FUNCTION
 const generateRTCToken = (req, resp) => {
@@ -66,9 +62,14 @@ const generateRTCToken = (req, resp) => {
       return resp.status(500).json({ 'error': 'token type is invalid' });
     }
     // return the token
-    return resp.json({ 'rtcToken': token, 'uid': uid, 'role': role });
+    return resp.json({ 'rtcToken': token, 'uid': uid, 'role': role , 'channelName': channelName });
 }
 
+router.get("/", (req, res) => {
+  res.json({
+    hello: "Hello! Welcome to my RTC Server"
+  });
+});
 
 // RTC URL To Generate Token
 router.get('/rtc/:channel/:role/:tokentype/:uid', nocache , generateRTCToken);
